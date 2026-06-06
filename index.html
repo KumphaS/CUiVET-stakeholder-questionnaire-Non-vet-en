@@ -1,0 +1,1785 @@
+<!-- Non-vet Student_en_2 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CU i-VET Survey — General Public / Students</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary:            #df587c;
+            --bg:                 #ffffff;
+            --highlight:          #8cb8e6;
+            --highlight-bg:       #eef5fc;
+            --highlight-border:   #b8d6f0;
+            --text:               #333;
+            --text-muted:         #555;
+            --error:              #e53e3e;
+            --error-bg:           #fff5f5;
+            --error-border:       #fc8181;
+            --success:            #38a169;
+            --nav-height:         64px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+ /* ===================== NAVBAR ===================== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #ffffff;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            border-bottom: 1px solid #e8e8e8;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .navbar-logo img {
+            height: 38px;
+            width: auto;
+            display: block;
+        }
+
+        .navbar-title {
+            color: #333333;
+            font-size: 20px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 400;
+            margin-left: 20px;
+            padding-left: 20px;
+            border-left: 1px solid #e0e0e0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .lang-btn {
+            color: #333333;
+            font-size: 16px;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 400;
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(0,0,0,0.06);
+        }
+
+        .lang-btn.active {
+            background: rgba(223,88,124,0.10);
+            color: #df587c;
+            font-weight: 700;
+        }
+
+        .lang-divider {
+            color: rgba(0,0,0,0.25);
+            font-size: 14px;
+            user-select: none;
+        }
+
+        /* ===================== BANNER ===================== */
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 40vh;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .banner-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center 40%;
+            background-repeat: no-repeat;
+            background-image: url('images/banner_home.png');
+        }
+
+        .banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(20, 20, 35, 0.65) 0%,
+                rgba(10, 10, 20, 0.35) 100%
+            );
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 1;
+            padding: 52px 48px;
+            max-width: 860px;
+        }
+
+        .banner-heading {
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 34px;
+            color: #f9f9f9;
+            margin: 0 0 12px 0;
+            line-height: 1.3;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+        }
+
+        .banner-subheading {
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #f9f9f9;
+            margin: 0;
+            opacity: 0.92;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+        }
+
+        /* ===================== QUESTIONNAIRE TITLE ===================== */
+        .questionnaire-title-bar {
+            padding: 24px 48px;
+        }
+
+        .questionnaire-title {
+            font-family: 'Sarabun', sans-serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: #df587c;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        /* ===================== PAGE BODY ===================== */
+        .page-body {
+            padding: 0 48px 0 48px;
+        }
+
+        /* ===================== RESPONSIVE ===================== */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 20px;
+            }
+            .navbar-title {
+                display: none;
+            }
+            .questionnaire-title-bar {
+                padding: 24px 20px;
+            }
+            .questionnaire-title {
+                font-size: 26px;
+            }
+            .banner-content {
+                padding: 36px 20px;
+            }
+            .banner-heading {
+                font-size: 26px;
+            }
+            .banner-subheading {
+                font-size: 16px;
+            }
+            .page-body {
+                padding: 0 20px;
+            }
+        }
+      
+        .container { max-width: 1100px; margin: auto; }
+
+        /* ===== QUESTION CARD ===== */
+        .question-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .question-card.has-error {
+            border-color: var(--error-border);
+            box-shadow: 0 0 0 3px rgba(229,62,62,0.15), 0 2px 8px rgba(0,0,0,0.06);
+            background-color: var(--error-bg);
+        }
+        .error-message {
+            display: none;
+            color: var(--error);
+            font-size: 0.88rem;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: rgba(229,62,62,0.08);
+            border-radius: 6px;
+            border-left: 3px solid var(--error);
+        }
+        .question-card.has-error .error-message { display: block; }
+
+        /* ===== LIKERT CARD ===== */
+        .likert-item-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .likert-item-card.has-error {
+            border-color: var(--error-border);
+            box-shadow: 0 0 0 3px rgba(229,62,62,0.15);
+            background-color: var(--error-bg);
+        }
+        .likert-item-card .error-message {
+            display: none;
+            color: var(--error);
+            font-size: 0.88rem;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: rgba(229,62,62,0.08);
+            border-radius: 6px;
+            border-left: 3px solid var(--error);
+        }
+        .likert-item-card.has-error .error-message { display: block; }
+
+        /* ===== SECTION HEADER ===== */
+        .section-header {
+            border-left: 8px solid var(--primary);
+            margin-bottom: 4px;
+            margin-top: 20px;
+        }
+        .section-header:first-child { margin-top: 0; }
+        .section-header h3 { color: var(--primary); margin: 0; font-size: 1.1rem; }
+        .section-header p  { font-size: 0.9rem; color: #666; margin: 5px 0 0 0; }
+
+        /* ===== TYPOGRAPHY ===== */
+        .question-title {
+            font-weight: bold;
+            color: var(--text);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: block;
+        }
+        .question-subtitle {
+            font-weight: normal;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: block;
+        }
+        .required { color: var(--error); margin-left: 5px; }
+
+        /* ===== INPUTS ===== */
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: 'Sarabun', sans-serif;
+            font-size: 1rem;
+            color: var(--text);
+            transition: border-color 0.2s;
+            appearance: none;
+            background: white;
+        }
+        input[type="text"]:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        textarea { resize: vertical; min-height: 80px; }
+
+        .select-wrapper { position: relative; }
+        .select-wrapper::after {
+            content: '▾';
+            position: absolute; right: 14px; top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted); pointer-events: none;
+            font-size: 1rem;
+        }
+        .select-wrapper select { padding-right: 36px; cursor: pointer; }
+
+        /* ===== RADIO & CHECKBOX ===== */
+        .radio-group { margin: 10px 0; }
+        .radio-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .radio-item input[type="radio"] {
+            margin-right: 12px;
+            width: 18px; height: 18px;
+            cursor: pointer;
+            accent-color: var(--primary);
+            flex-shrink: 0;
+        }
+        .checkbox-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 12px;
+            width: 18px; height: 18px;
+            cursor: pointer;
+            accent-color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        .checkbox-label { flex: 1; }
+
+        .other-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .other-row input[type="checkbox"],
+        .other-row input[type="radio"] {
+            width: 18px; height: 18px;
+            cursor: pointer;
+            accent-color: var(--primary);
+            flex-shrink: 0;
+        }
+        .other-row .other-label { white-space: nowrap; color: var(--text-muted); }
+        .other-row .other-text-input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Sarabun', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.2s, background 0.2s;
+            background: #f9f9f9;
+            color: #aaa;
+        }
+        .other-row .other-text-input:not(:disabled) {
+            background: white;
+            color: var(--text);
+            border-color: var(--primary);
+        }
+        .other-row .other-text-input:focus { outline: none; border-color: var(--primary); }
+
+        /* ===== CONDITIONAL SECTION ===== */
+        .conditional-section {
+            display: none;
+            animation: fadeSlideIn 0.3s ease;
+        }
+        .conditional-section.visible { display: block; }
+        @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== SUB-QUESTION BLOCK (blue box) ===== */
+        .sub-block-wrapper {
+            background: var(--highlight-bg);
+            border: 1.5px solid var(--highlight-border);
+            border-radius: 12px;
+            padding: 20px 20px 10px 20px;
+            margin-top: 16px;
+        }
+        .sub-block-wrapper .sub-block-title {
+            font-size: 0.82rem;
+            font-weight: bold;
+            color: #4a7ab5;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 14px;
+        }
+        .sub-question-block { margin-bottom: 18px; }
+        .sub-question-block .question-title { font-size: 1rem; margin-bottom: 12px; }
+        .sub-question-block:last-child { margin-bottom: 0; }
+
+        /* ===== DRAG-TO-RANK ===== */
+        .rank-hint {
+            background: #f0f7ff;
+            border: 1px dashed #8cb8e6;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            color: #4a7ab5;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .rank-hint::before { content: '✦'; font-size: 0.8rem; }
+        .rank-list { list-style: none; }
+        .rank-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: white;
+            border: 1px solid #e0e8f0;
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            cursor: grab;
+            user-select: none;
+            transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+        }
+        .rank-item:active { cursor: grabbing; }
+        .rank-item.dragging {
+            opacity: 0.55;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+            border-color: var(--primary);
+            transform: scale(1.02);
+        }
+        .rank-item.drag-over {
+            border-color: var(--highlight);
+            box-shadow: 0 0 0 3px rgba(140,184,230,0.3);
+        }
+        .rank-badge {
+            min-width: 28px; height: 28px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+            font-size: 0.85rem;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; margin-top: 2px;
+        }
+        .rank-drag-handle { color: #bbb; font-size: 1.1rem; flex-shrink: 0; margin-top: 4px; }
+        .rank-item-text { flex: 1; }
+        .rank-item-name { font-weight: bold; font-size: 0.97rem; color: var(--text); }
+        .rank-item-desc { font-size: 0.82rem; color: var(--text-muted); margin-top: 3px; line-height: 1.4; }
+
+        /* ===== DYNAMIC INPUTS ===== */
+        .dynamic-fields-container { margin-bottom: 4px; }
+        .dynamic-first-row { margin-bottom: 10px; }
+        .dynamic-first-row input[type="text"] { width: 100%; }
+        .dynamic-extra-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            animation: fadeSlideIn 0.25s ease;
+        }
+        .dynamic-extra-row input[type="text"] { flex: 1; }
+        .btn-remove {
+            background: none;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            color: #999;
+            cursor: pointer;
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            font-family: 'Sarabun', sans-serif;
+            flex-shrink: 0;
+            line-height: 1;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .btn-remove:hover { border-color: var(--error); color: var(--error); }
+        .btn-add-more {
+            background: none;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            color: #888;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-family: 'Sarabun', sans-serif;
+            font-size: 0.95rem;
+            width: 100%;
+            margin-top: 5px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .btn-add-more:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* ===== SINGLE LIKERT ===== */
+        .single-scale-standalone {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            background: #fcfdff;
+            border-top: 5px solid var(--highlight);
+        }
+        .scale-labels { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.8rem; color: #888; }
+        .single-likert { display: flex; justify-content: space-between; align-items: center; padding: 0 5px; }
+        .option { text-align: center; flex: 1; }
+        .option label { display: block; font-size: 0.85rem; margin-bottom: 5px; color: #666; font-weight: bold; }
+        .option input { accent-color: var(--primary); width: 18px; height: 18px; cursor: pointer; }
+
+        /* ===== FILTERED-OUT MESSAGE ===== */
+        .filtered-message {
+            background: #f9f9f9;
+            border: 2px dashed #ddd;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+            display: none;
+            margin-bottom: 20px;
+        }
+        .filtered-message.visible { display: block; }
+        .filtered-message .emoji { font-size: 2rem; margin-bottom: 10px; }
+
+        /* ===== BUTTONS ===== */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            padding: 20px 0 80px;
+            align-items: center;
+        }
+        .btn {
+            padding: 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: 'Sarabun', sans-serif;
+            transition: all 0.2s ease;
+            text-align: center;
+            border: none;
+        }
+        .btn-primary {
+            flex: 2;
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(223,88,124,0.3);
+        }
+        .btn-primary:hover { opacity: 0.92; }
+        .btn-secondary {
+            flex: 1;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn:active { transform: scale(0.98); }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 9999;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-box {
+            background: white;
+            border-radius: 24px 24px 0 0;
+            padding: 12px 32px 44px;
+            max-width: 100%; width: 100%;
+            text-align: center;
+            box-shadow: 0 -8px 40px rgba(0,0,0,0.15);
+            animation: slideFromBottom 0.35s cubic-bezier(0.34,1.2,0.64,1) forwards;
+        }
+        @keyframes slideFromBottom {
+            from { transform: translateY(100%); opacity: 0.6; }
+            to   { transform: translateY(0); opacity: 1; }
+        }
+        .modal-handle { width: 40px; height: 4px; background: #ddd; border-radius: 2px; margin: 16px auto 24px; }
+        .modal-icon   { font-size: 2.8rem; margin-bottom: 10px; line-height: 1; }
+        .modal-title  { font-size: 1.3rem; font-weight: bold; color: var(--text); margin-bottom: 8px; }
+        .modal-body   { font-size: 1rem; color: #666; margin-bottom: 28px; line-height: 1.6; }
+        .modal-btn-group { display: flex; gap: 10px; justify-content: center; }
+        .modal-btn {
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-family: 'Sarabun', sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            flex: 1;
+            max-width: 200px;
+        }
+        .modal-btn-primary  { background: var(--primary); color: white; box-shadow: 0 4px 12px rgba(223,88,124,0.3); }
+        .modal-btn-primary:hover  { opacity: 0.9; }
+        .modal-btn-secondary { background: #f0f0f0; color: var(--text-muted); }
+        .modal-btn-secondary:hover { background: #e0e0e0; }
+        .modal-icon-success { color: var(--success); }
+        .modal-icon-confirm { color: #e6a817; }
+
+        .section-gap { height: 20px; }
+
+        @media (max-width: 640px) {
+            .btn-group { flex-direction: column-reverse; }
+            .btn { width: 100%; flex: none; }
+            .modal-box { padding: 12px 20px 36px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar">
+    <a href="https://sites.google.com/chula.ac.th/cu-i-vet-questionaire-th/%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%E0%B9%84%E0%B8%97%E0%B8%A2" class="navbar-logo">
+        <img src="images/logo_cu-vet_en.jpg" alt="CUVET Logo">
+    </a>
+    <span class="navbar-title">CU i-VET Stakeholder Assessment</span>
+    <div class="navbar-right">
+        <a href="https://sites.google.com/chula.ac.th/cu-i-vet-questionaire-th/%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%E0%B9%84%E0%B8%97%E0%B8%A2" class="lang-btn active">ภาษาไทย</a>
+        <span class="lang-divider">|</span>
+        <a href="https://sites.google.com/chula.ac.th/cu-i-vet-questionaire-en/english" class="lang-btn">English</a>
+    </div>
+</nav>
+
+<!-- ===================== BANNER ===================== -->
+<div class="banner">
+    <div class="banner-bg"></div>
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+        <h1 class="banner-heading">Stakeholder Survey:</h1>
+        <p class="banner-subheading">Doctor of Veterinary Medicine (International Program)</p>
+    </div>
+</div>
+
+<!-- ===================== QUESTIONNAIRE TITLE ===================== -->
+<div class="questionnaire-title-bar">
+    <h2 class="questionnaire-title">Students and General Public</h2>
+</div>
+
+<!-- ===================== QUESTIONNAIRE BODY ===================== -->
+<div class="page-body">
+
+<!-- Modal: Confirm Reset -->
+<div class="modal-overlay" id="modal-confirm-reset">
+    <div class="modal-box">
+        <div class="modal-handle"></div>
+        <div class="modal-icon modal-icon-confirm">🗑️</div>
+        <div class="modal-title">Clear all responses?</div>
+        <div class="modal-body">All the information you have entered will be removed<br>and cannot be recovered.</div>
+        <div class="modal-btn-group">
+            <button class="modal-btn modal-btn-secondary" onclick="closeModal('modal-confirm-reset')">Cancel</button>
+            <button class="modal-btn modal-btn-primary" onclick="doReset()">Clear</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Success / Error -->
+<div class="modal-overlay" id="modal-success">
+    <div class="modal-box">
+        <div class="modal-handle"></div>
+        <div class="modal-icon modal-icon-success" id="modal-success-icon">✅</div>
+        <div class="modal-title" id="modal-success-title">Survey submitted successfully!</div>
+        <div class="modal-body" id="modal-success-body">Thank you for taking the time to complete this survey.<br>Your responses will be used solely to develop the CU i-VET program.</div>
+        <div class="modal-btn-group">
+            <button class="modal-btn modal-btn-primary" onclick="closeModal('modal-success')">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+<!-- ==================== PART 1 ==================== -->
+<div class="question-card section-header">
+    <h3>Part 1: Respondent Information</h3>
+</div>
+
+<!-- Q1: Gender -->
+<div class="question-card" id="card-s1_gender">
+    <label class="question-title">1. Please select your gender. <span class="required">*</span></label>
+    <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="s1_gender" value="Male"> Male</label>
+        <label class="radio-item"><input type="radio" name="s1_gender" value="Female"> Female</label>
+        <label class="radio-item"><input type="radio" name="s1_gender" value="Other"> Other</label>
+        <label class="radio-item"><input type="radio" name="s1_gender" value="Prefer not to say"> Prefer not to say</label>
+    </div>
+    <div class="error-message">Please select your gender.</div>
+</div>
+
+<!-- Q2: Age -->
+<div class="question-card" id="card-s1_age">
+    <label class="question-title">2. Please select your age range. <span class="required">*</span></label>
+    <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="s1_age" value="Under 18 years old"> Under 18 years old</label>
+        <label class="radio-item"><input type="radio" name="s1_age" value="18 - 25 years old"> 18 – 25 years old</label>
+        <label class="radio-item"><input type="radio" name="s1_age" value="26 - 35 years old"> 26 – 35 years old</label>
+        <label class="radio-item"><input type="radio" name="s1_age" value="36 - 45 years old"> 36 – 45 years old</label>
+        <label class="radio-item"><input type="radio" name="s1_age" value="Over 45 years old"> Over 45 years old</label>
+    </div>
+    <div class="error-message">Please select your age range.</div>
+</div>
+
+<!-- Q3: Country -->
+<div class="question-card" id="card-s1_country">
+    <label class="question-title">3. Please select your country. <span class="required">*</span></label>
+    <div class="select-wrapper">
+        <select id="s1_country">
+            <option value="">— Please select a country —</option>
+        </select>
+    </div>
+    <div class="error-message">Please select your country.</div>
+</div>
+
+<!-- Q4: Status -->
+<div class="question-card" id="card-s1_status">
+    <label class="question-title">4. What is your current status? <span class="required">*</span></label>
+    <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="s1_status" value="School Student" onchange="onStatusChange()"> School Student</label>
+        <label class="radio-item"><input type="radio" name="s1_status" value="University Student (Bachelor's degree or higher)" onchange="onStatusChange()"> University Student (Bachelor's degree or higher)</label>
+        <label class="radio-item"><input type="radio" name="s1_status" value="General Public" onchange="onStatusChange()"> General Public</label>
+    </div>
+    <div class="error-message">Please select your current status.</div>
+
+    <!-- ── SUB: School Student ── -->
+    <div class="conditional-section" id="sub-student">
+        <div class="sub-block-wrapper">
+            <div class="sub-block-title">Additional information for school students</div>
+
+            <!-- 4.1 Education Level -->
+            <div class="sub-question-block" id="card-s1_edu_level">
+                <label class="question-title">4.1 What education level/grade are you currently in? <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label class="radio-item"><input type="radio" name="s1_edu_level" value="Lower Secondary Education (Middle School / Junior High School) or lower" onchange="onEduLevelChange()"> Lower Secondary Education (Middle School / Junior High School) or lower</label>
+                    <label class="radio-item"><input type="radio" name="s1_edu_level" value="Upper Secondary Education (High School General Track)" onchange="onEduLevelChange()"> Upper Secondary Education (High School General Track)</label>
+                    <label class="radio-item"><input type="radio" name="s1_edu_level" value="Technical & Vocational Education" onchange="onEduLevelChange()"> Technical &amp; Vocational Education</label>
+                    <label class="radio-item"><input type="radio" name="s1_edu_level" value="Diploma / Associate Degree or Equivalent" onchange="onEduLevelChange()"> Diploma / Associate Degree or Equivalent</label>
+                </div>
+                <div class="error-message">Please select your education level.</div>
+            </div>
+
+            <!-- 4.2 School Name -->
+            <div class="sub-question-block" id="card-s1_hs_school">
+                <label class="question-title">4.2 School Name <span class="required">*</span></label>
+                <input type="text" id="s1_hs_school" placeholder="Please enter your school name">
+                <div class="error-message">Please enter your school name.</div>
+            </div>
+
+            <!-- 4.3 School Type -->
+            <div class="sub-question-block" id="card-s1_hs_type">
+                <label class="question-title">4.3 What type of school do you attend? <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label class="radio-item"><input type="radio" name="s1_hs_type" value="Regular program" onchange="onHsTypeChange()"> Regular program</label>
+                    <label class="radio-item"><input type="radio" name="s1_hs_type" value="Bilingual or English Program (EP)" onchange="onHsTypeChange()"> Bilingual or English Program (EP)</label>
+                    <label class="radio-item"><input type="radio" name="s1_hs_type" value="International school in home country" onchange="onHsTypeChange()"> International school in home country</label>
+                    <label class="radio-item"><input type="radio" name="s1_hs_type" value="International school abroad" onchange="onHsTypeChange()"> International school abroad</label>
+                </div>
+                <div class="conditional-section" id="hs-country-wrap" style="margin-top:10px;">
+                    <div class="select-wrapper">
+                        <select id="s1_hs_country">
+                            <option value="">— Please select a country —</option>
+                        </select>
+                    </div>
+                    <div class="error-message" id="err-hs-country" style="display:none; margin-top:6px;">Please select a country.</div>
+                </div>
+                <div class="error-message">Please select your school type.</div>
+            </div>
+
+            <!-- 4.4 Study Track -->
+            <div class="sub-question-block" id="card-s1_hs_track">
+                <label class="question-title">4.4 What is your study track, academic stream or field of study? <span class="required">*</span></label>
+                <span class="question-subtitle" style="margin-bottom:10px;">e.g., Business Administration, Mechanics, Hospitality</span>
+                <input type="text" id="s1_hs_track" placeholder="Please enter your study track or field">
+                <div class="error-message">Please enter your study track or field.</div>
+            </div>
+        </div>
+    </div><!-- /sub-student -->
+
+    <!-- ── SUB: University Student / General Public ── -->
+    <div class="conditional-section" id="sub-university">
+        <div class="sub-block-wrapper">
+            <div class="sub-block-title" id="sub-uni-label">Please indicate your highest level of completed education.</div>
+
+            <!-- 4.1 University -->
+            <div class="sub-question-block" id="card-s1_uni_inst">
+                <label class="question-title">4.1 Which university do/did you attend? <span class="required">*</span></label>
+                <div class="select-wrapper">
+                    <select id="s1_uni_inst" onchange="onUniInstChange()">
+                        <option value="">— Please select a university —</option>
+                        <option>Airlangga University (UNAIR) – Indonesia</option>
+                        <option>Banaras Hindu University (BHU) – India</option>
+                        <option>Gadjah Mada University (UGM) – Indonesia</option>
+                        <option>Indian Institute of Science (IISc) Bangalore – India</option>
+                        <option>IPB University (Bogor Agricultural University) – Indonesia</option>
+                        <option>Nanyang Technological University (NTU) – Singapore</option>
+                        <option>National University of Sciences &amp; Technology (NUST) – Pakistan</option>
+                        <option>National University of Singapore (NUS) – Singapore</option>
+                        <option>Universiti Malaya (UM) – Malaysia</option>
+                        <option>Universiti Putra Malaysia (UPM) – Malaysia</option>
+                        <option>University of Agriculture, Faisalabad (UAF) – Pakistan</option>
+                        <option>University of Delhi (DU) – India</option>
+                        <option>University of Peradeniya – Sri Lanka</option>
+                        <option>University of the Philippines Los Baños (UPLB) – Philippines</option>
+                        <option>Vietnam National University (VNU) – Vietnam</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="conditional-section" id="uni-inst-other-wrap" style="margin-top:10px;">
+                    <input type="text" id="s1_uni_inst_other" placeholder="Please enter your university name">
+                </div>
+                <div class="error-message">Please select your university.</div>
+            </div>
+
+            <!-- 4.2 Degree Level -->
+            <div class="sub-question-block" id="card-s1_uni_degree">
+                <label class="question-title">4.2 What is your current or highest degree level? <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label class="radio-item"><input type="radio" name="s1_uni_degree" value="Bachelor's Degree"> Bachelor's Degree</label>
+                    <label class="radio-item"><input type="radio" name="s1_uni_degree" value="Master's Degree"> Master's Degree</label>
+                    <label class="radio-item"><input type="radio" name="s1_uni_degree" value="Doctoral Degree"> Doctoral Degree</label>
+                    <label class="radio-item"><input type="radio" name="s1_uni_degree" value="Other"> Other</label>
+                </div>
+                <div class="error-message">Please select your degree level.</div>
+            </div>
+
+            <!-- 4.3 Faculty -->
+            <div class="sub-question-block" id="card-s1_uni_faculty">
+                <label class="question-title">4.3 Which Faculty/School do you belong to? <span class="required">*</span></label>
+                <div class="select-wrapper">
+                    <select id="s1_uni_faculty" onchange="onUniFacultyChange()">
+                        <option value="">— Please select a faculty —</option>
+                        <option>Faculty of Medicine</option>
+                        <option>Faculty of Dentistry</option>
+                        <option>Faculty of Pharmaceutical Sciences</option>
+                        <option>Faculty of Nursing</option>
+                        <option>Faculty of Allied Health Sciences / Medical Technology</option>
+                        <option>Faculty of Sports Science</option>
+                        <option>Faculty of Public Health</option>
+                        <option>Faculty of Engineering</option>
+                        <option>Faculty of Science</option>
+                        <option>Faculty of Information Technology / Computer Science</option>
+                        <option>Faculty of Agriculture / Forestry / Fisheries</option>
+                        <option>Faculty of Agro-Industry / Biotechnology</option>
+                        <option>Faculty of Arts / Liberal Arts / Humanities</option>
+                        <option>Faculty of Social Sciences / Sociology and Anthropology</option>
+                        <option>Faculty of Political Science</option>
+                        <option>Faculty of Law</option>
+                        <option>Faculty of Communication Arts / Journalism</option>
+                        <option>Faculty of Education</option>
+                        <option>Faculty of Psychology</option>
+                        <option>Faculty of Business Administration / Commerce and Accountancy</option>
+                        <option>Faculty of Economics</option>
+                        <option>Faculty of Tourism and Hospitality</option>
+                        <option>Faculty of Architecture</option>
+                        <option>Faculty of Fine and Applied Arts / Music</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="conditional-section" id="uni-faculty-other-wrap" style="margin-top:10px;">
+                    <input type="text" id="s1_uni_faculty_other" placeholder="Please enter your faculty name">
+                </div>
+                <div class="error-message">Please select your faculty.</div>
+            </div>
+
+            <!-- 4.4 Major -->
+            <div class="sub-question-block" id="card-s1_uni_major">
+                <label class="question-title">4.4 What is your specific major or field of study? <span class="required">*</span></label>
+                <input type="text" id="s1_uni_major" placeholder="Please enter your major or field of study">
+                <div class="error-message">Please enter your major or field of study.</div>
+            </div>
+
+            <!-- 4.5 Instruction Medium -->
+            <div class="sub-question-block" id="card-s1_uni_medium">
+                <label class="question-title">4.5 What was the primary medium of instruction in your program? <span class="required">*</span></label>
+                <div class="radio-group">
+                    <label class="radio-item"><input type="radio" name="s1_uni_medium" value="English (International Program / English-taught Program)"> English (International Program / English-taught Program)</label>
+                    <label class="radio-item"><input type="radio" name="s1_uni_medium" value="National language of your country"> National language of your country</label>
+                    <label class="radio-item"><input type="radio" name="s1_uni_medium" value="Bilingual (Both English and local language)"> Bilingual (Both English and local language)</label>
+                </div>
+                <div class="error-message">Please select the medium of instruction.</div>
+            </div>
+
+            <!-- 4.6 Academic Year -->
+            <div class="sub-question-block" id="card-s1_uni_year">
+                <label class="question-title">4.6 What is your current academic year status? <span class="required">*</span></label>
+                <div class="select-wrapper">
+                    <select id="s1_uni_year" onchange="onUniYearChange()">
+                        <option value="">— Please select your year —</option>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                        <option value="4th Year">4th Year</option>
+                        <option value="5th Year">5th Year</option>
+                        <option value="6th Year">6th Year</option>
+                        <option value="Already graduated">Already graduated</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="error-message">Please select your academic year.</div>
+            </div>
+
+            <!-- 4.6 other year -->
+            <div class="conditional-section" id="sub-year-other-wrap" style="margin-bottom:14px;">
+                <div class="sub-question-block" style="margin-bottom:0;" id="card-s1_uni_year_other">
+                    <input type="text" id="s1_uni_year_other" placeholder="Please specify your year">
+                    <div class="error-message">Please enter your academic year.</div>
+                </div>
+            </div>
+
+            <!-- 4.7 Employment (graduated) -->
+            <div class="conditional-section" id="sub-occupation-wrap">
+                <div class="sub-question-block" id="card-s1_occupation">
+                    <label class="question-title">4.7 What is your current employment status or job title? <span class="required">*</span></label>
+                    <input type="text" id="s1_occupation" placeholder="Please enter your current occupation or job title">
+                    <div class="error-message">Please enter your current occupation or job title.</div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- /sub-university -->
+</div><!-- /card-s1_status -->
+
+<!-- Q5: Interest Level -->
+<div class="question-card" id="card-s1_interest">
+    <label class="question-title">5. How interested are you in applying for the Doctor of Veterinary Medicine (International Program), also known as CU i-VET? <span class="required">*</span></label>
+    <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="s1_interest" value="Very interested (I intend to apply)" onchange="onInterestChange()"> Very interested (I intend to apply)</label>
+        <label class="radio-item"><input type="radio" name="s1_interest" value="Somewhat interested (I am currently considering it)" onchange="onInterestChange()"> Somewhat interested (I am currently considering it)</label>
+        <label class="radio-item"><input type="radio" name="s1_interest" value="Slightly interested (I am exploring my options)" onchange="onInterestChange()"> Slightly interested (I am exploring my options)</label>
+        <label class="radio-item"><input type="radio" name="s1_interest" value="Not interested at all" onchange="onInterestChange()"> Not interested at all</label>
+    </div>
+    <div class="error-message">Please select your level of interest.</div>
+</div>
+
+<!-- Filtered-out message -->
+<div class="filtered-message" id="filtered-msg">
+    <div class="emoji">🙏</div>
+    <div style="font-weight:bold; font-size:1.1rem; margin-bottom:6px;">Thank you for your response.</div>
+    <div>You may submit or clear the form using the buttons below.</div>
+</div>
+
+<!-- ==================== PARTS 2–5 ==================== -->
+<div id="section-2-5-wrapper">
+
+<!-- ==================== PART 2 ==================== -->
+<div class="section-gap"></div>
+<div class="question-card section-header">
+    <h3>Part 2: Reasons for Choosing the International Veterinary Medicine Program</h3>
+</div>
+
+<!-- S2 Q1: conditional on status -->
+<div class="question-card" id="card-s2_q1">
+    <label class="question-title">1. Why are you interested in this International Veterinary Medicine Program? <span class="required">*</span></label>
+    <span class="question-subtitle">Select all that apply</span>
+
+    <!-- School Student options -->
+    <div id="s2q1-student-options">
+        <label class="checkbox-item"><input type="checkbox" name="s2_q1_student" value="Opportunities to work abroad or with international companies"><span class="checkbox-label">Opportunities to work abroad or with international companies</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="s2_q1_student" value="Good chance to improve my English skills"><span class="checkbox-label">Good chance to improve my English skills</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="s2_q1_student" value="High-quality curriculum and teaching standards"><span class="checkbox-label">High-quality curriculum and teaching standards</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="s2_q1_student" value="International learning environment"><span class="checkbox-label">International learning environment</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="s2_q1_student" value="I have always been interested in being a veterinarian"><span class="checkbox-label">I have always been interested in being a veterinarian</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="s2_q1_student" value="Recommended or expected by my family/parents"><span class="checkbox-label">Recommended or expected by my family/parents</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="s2_q1_student" value="I am already studying in an international program"><span class="checkbox-label">I am already studying in an international program</span></label>
+        <div class="other-row">
+            <input type="checkbox" id="s2q1_student_other_cb" onchange="toggleOtherText('s2_q1_student_other', this.checked)">
+            <span class="other-label">Other</span>
+            <input type="text" id="s2_q1_student_other" class="other-text-input" placeholder="Please specify" disabled>
+        </div>
+    </div>
+
+    <!-- University / General Public options -->
+    <div id="s2q1-uni-options" style="display:none;">
+        <label class="checkbox-item"><input type="checkbox" name="s2_q1_uni" value="I want to switch my career path to become a veterinarian"><span class="checkbox-label">I want to switch my career path to become a veterinarian</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="s2_q1_uni" value="I want to build on my previous degree and get into advanced animal care"><span class="checkbox-label">I want to build on my previous degree and get into advanced animal care</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="s2_q1_uni" value="The international program condenses the material, making it easier for degree holders to continue their studies"><span class="checkbox-label">The international program condenses the material, making it easier for degree holders to continue their studies</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="s2_q1_uni" value="I want an international degree to specialize abroad or take licensing exams in other countries more easily"><span class="checkbox-label">I want an international degree to specialize abroad or take licensing exams in other countries more easily</span></label>
+        <div class="other-row">
+            <input type="checkbox" id="s2q1_uni_other_cb" onchange="toggleOtherText('s2_q1_uni_other', this.checked)">
+            <span class="other-label">Other</span>
+            <input type="text" id="s2_q1_uni_other" class="other-text-input" placeholder="Please specify" disabled>
+        </div>
+    </div>
+    <div class="error-message">Please select at least one option.</div>
+</div>
+
+<!-- S2 Q2: Drag-to-rank -->
+<div class="question-card" id="card-s2_q2">
+    <label class="question-title">2. Please rank these factors by how important they are when choosing an International program. <span class="required">*</span></label>
+    <span class="question-subtitle">Drag to rank from most to least important (Rank 1 = Most important)</span>
+    <div class="rank-hint">Hold and drag to reorder — supports both mouse and touch</div>
+    <ul class="rank-list" id="rank-list-s2q2"></ul>
+    <div class="error-message">Please rank the factors.</div>
+</div>
+
+<!-- S2 Q3: dynamic inputs (optional) -->
+<div class="question-card">
+    <label class="question-title">3. Are there any other factors or expectations you have about choosing an international program?</label>
+    <div class="dynamic-fields-container" id="s2_q3_inputs">
+        <div class="dynamic-first-row">
+            <input type="text" placeholder="Please specify...">
+        </div>
+    </div>
+    <button type="button" class="btn-add-more" onclick="addDynamic('s2_q3_inputs', 'Please specify...')">+ Add another response</button>
+</div>
+
+<!-- S2 Q4: Drag-to-rank -->
+<div class="question-card" id="card-s2_q4">
+    <label class="question-title">4. What would be your primary reasons for choosing an international veterinary program based in Thailand? <span class="required">*</span></label>
+    <span class="question-subtitle">Drag to rank from most to least important (Rank 1 = Most important)</span>
+    <div class="rank-hint">Hold and drag to reorder — supports both mouse and touch</div>
+    <ul class="rank-list" id="rank-list-s2q4"></ul>
+    <div class="error-message">Please rank the factors.</div>
+</div>
+
+<!-- S2 Q5: dynamic inputs (optional) -->
+<div class="question-card">
+    <label class="question-title">5. Aside from the curriculum, what other factors would influence your decision to choose an international veterinary program in Thailand? <span class="required">*</span></label>
+    <div class="dynamic-fields-container" id="s2_q5_inputs">
+        <div class="dynamic-first-row">
+            <input type="text" placeholder="Please specify...">
+        </div>
+    </div>
+    <button type="button" class="btn-add-more" onclick="addDynamic('s2_q5_inputs', 'Please specify...')">+ Add another response</button>
+</div>
+
+<!-- S2 Q6: University / General Public only -->
+<div class="conditional-section" id="s2_q6_section">
+    <div class="question-card" id="card-s2_q6">
+        <label class="question-title">6. What is your primary reason for pursuing a second Bachelor's Degree (D.V.M. International Program) rather than a Master's or Ph.D. in Veterinary Science? <span class="required">*</span></label>
+        <span class="question-subtitle">Select all that apply</span>
+        <label class="checkbox-item"><input type="checkbox" name="s2_q6" value="To obtain a Doctor of Veterinary Medicine (D.V.M.) degree, which is required for professional veterinary licensing."><span class="checkbox-label">To obtain a Doctor of Veterinary Medicine (D.V.M.) degree, which is required for professional veterinary licensing.</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="s2_q6" value="My primary career goal is to become a practicing, clinical veterinarian (treating animals directly)."><span class="checkbox-label">My primary career goal is to become a practicing, clinical veterinarian (treating animals directly).</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="s2_q6" value="To build a comprehensive, foundational knowledge of veterinary medicine from the ground up."><span class="checkbox-label">To build a comprehensive, foundational knowledge of veterinary medicine from the ground up.</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="s2_q6" value="To gain extensive hands-on clinical experience and practical internships in animal hospitals."><span class="checkbox-label">To gain extensive hands-on clinical experience and practical internships in animal hospitals.</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="s2_q6" value="This program offers a direct, accessible pathway into veterinary medicine for graduates from non-veterinary backgrounds."><span class="checkbox-label">This program offers a direct, accessible pathway into veterinary medicine for graduates from non-veterinary backgrounds.</span></label>
+        <div class="other-row">
+            <input type="checkbox" id="s2q6_other_cb" onchange="toggleOtherText('s2_q6_other', this.checked)">
+            <span class="other-label">Other</span>
+            <input type="text" id="s2_q6_other" class="other-text-input" placeholder="Please specify" disabled>
+        </div>
+        <div class="error-message">Please select at least one option.</div>
+    </div>
+</div>
+
+<!-- ==================== PART 3 ==================== -->
+<div class="section-gap"></div>
+<div class="question-card section-header">
+    <h3>Part 3: Programs of Interest</h3>
+</div>
+
+<!-- S3 Q1 -->
+<div class="question-card" id="card-s3_q1">
+    <label class="question-title">1. Which fields of veterinary work are you interested in? <span class="required">*</span></label>
+    <span class="question-subtitle">Select all that apply</span>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Small animal hospitals/clinics (Companion animals)"><span class="checkbox-label">Small animal hospitals/clinics (Companion animals)</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Poultry farms"><span class="checkbox-label">Poultry farms</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Pig farms"><span class="checkbox-label">Pig farms</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Dairy farms"><span class="checkbox-label">Dairy farms</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Horse farms"><span class="checkbox-label">Horse farms</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Aquaculture (Commercial aquatic animals)"><span class="checkbox-label">Aquaculture (Commercial aquatic animals)</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Aquatic animals (Ornamental/Pet fish)"><span class="checkbox-label">Aquatic animals (Ornamental/Pet fish)</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Zoos / Wildlife parks"><span class="checkbox-label">Zoos / Wildlife parks</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Diagnostic and medical research labs"><span class="checkbox-label">Diagnostic and medical research labs</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Pet pharmaceutical industry"><span class="checkbox-label">Pet pharmaceutical industry</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Livestock pharmaceutical industry"><span class="checkbox-label">Livestock pharmaceutical industry</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Biopesticides production"><span class="checkbox-label">Biopesticides production</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Animal feed mills / factories"><span class="checkbox-label">Animal feed mills / factories</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Veterinary Public Health (Zoonoses / Disease outbreaks)"><span class="checkbox-label">Veterinary Public Health (Zoonoses / Disease outbreaks)</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Veterinary Public Health (Food and agricultural standards)"><span class="checkbox-label">Veterinary Public Health (Food and agricultural standards)</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Processing plants (Pork, seafood, poultry)"><span class="checkbox-label">Processing plants (Pork, seafood, poultry)</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s3_q1" value="Not sure yet"><span class="checkbox-label">Not sure yet</span></label>
+    <div class="other-row">
+        <input type="checkbox" id="s3q1_other_cb" onchange="toggleOtherText('s3_q1_other', this.checked)">
+        <span class="other-label">Other</span>
+        <input type="text" id="s3_q1_other" class="other-text-input" placeholder="Please specify" disabled>
+    </div>
+    <div class="error-message">Please select at least one field.</div>
+</div>
+
+<!-- S3 Q2 -->
+<div class="likert-item-card" id="card-s3_q2">
+    <label class="question-title" style="margin-bottom:14px;">2. How interested would you be in a program that focuses on advanced specialized treatment and clinical care for companion animals? <span class="required">*</span></label>
+    <div class="single-scale-standalone">
+        <div class="scale-labels"><span>Not interested at all</span><span>Extremely interested</span></div>
+        <div class="single-likert" id="s3q2-scale"></div>
+    </div>
+    <div class="error-message">Please rate this item.</div>
+</div>
+
+<!-- S3 Q3 -->
+<div class="likert-item-card" id="card-s3_q3">
+    <label class="question-title" style="margin-bottom:14px;">3. How interested would you be in a program that integrates human, animal, and environmental health (the One Health approach) to address global diseases? <span class="required">*</span></label>
+    <div class="single-scale-standalone">
+        <div class="scale-labels"><span>Not interested at all</span><span>Extremely interested</span></div>
+        <div class="single-likert" id="s3q3-scale"></div>
+    </div>
+    <div class="error-message">Please rate this item.</div>
+</div>
+
+<!-- S3 Q4 (optional) -->
+<div class="likert-item-card" id="card-s3_q4">
+    <label class="question-title" style="margin-bottom:14px;">4. How interested would you be in a curriculum that combines modern medical technology (such as AI diagnostics and telemedicine) with agribusiness and international livestock management?</label>
+    <div class="single-scale-standalone">
+        <div class="scale-labels"><span>Not interested at all</span><span>Extremely interested</span></div>
+        <div class="single-likert" id="s3q4-scale"></div>
+    </div>
+</div>
+
+<!-- S3 Q5 (optional) -->
+<div class="likert-item-card" id="card-s3_q5">
+    <label class="question-title" style="margin-bottom:14px;">5. How interested would you be in a track focused on training researchers, developing biomedical innovations, and researching veterinary biologics at a global level?</label>
+    <div class="single-scale-standalone">
+        <div class="scale-labels"><span>Not interested at all</span><span>Extremely interested</span></div>
+        <div class="single-likert" id="s3q5-scale"></div>
+    </div>
+</div>
+
+<!-- ==================== PART 4 ==================== -->
+<div class="section-gap"></div>
+<div class="question-card section-header">
+    <h3>Part 4: Financial Readiness</h3>
+</div>
+
+<!-- S4 Q1 -->
+<div class="question-card" id="card-s4_q1">
+    <label class="question-title">1. Which of the following options best fits your budget for a semester's tuition in this International Veterinary Program? <span class="required">*</span></label>
+    <span class="question-subtitle">1 USD ≈ 32 THB</span>
+    <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="s4_q1" value="Under 150,000 THB (Approx. Under 4,700 USD)"> Under 150,000 THB (Approx. Under 4,700 USD)</label>
+        <label class="radio-item"><input type="radio" name="s4_q1" value="150,000 – 250,000 THB (Approx. 4,700 – 7,800 USD)"> 150,000 – 250,000 THB (Approx. 4,700 – 7,800 USD)</label>
+        <label class="radio-item"><input type="radio" name="s4_q1" value="250,001 – 350,000 THB (Approx. 7,801 – 10,900 USD)"> 250,001 – 350,000 THB (Approx. 7,801 – 10,900 USD)</label>
+        <label class="radio-item"><input type="radio" name="s4_q1" value="350,001 – 450,000 THB (Approx. 10,901 – 14,000 USD)"> 350,001 – 450,000 THB (Approx. 10,901 – 14,000 USD)</label>
+        <label class="radio-item"><input type="radio" name="s4_q1" value="Over 450,000 THB (Approx. Over 14,000 USD)"> Over 450,000 THB (Approx. Over 14,000 USD)</label>
+    </div>
+    <div class="error-message">Please select a tuition budget range.</div>
+</div>
+
+<!-- S4 Q2 -->
+<div class="question-card" id="card-s4_q2">
+    <label class="question-title">2. Would an estimated additional cost of 65,000 THB (Approx. 2,000 USD)  for a mandatory international internship or training program be financially feasible for you? <span class="required">*</span></label>
+    <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="s4_q2" value="Yes, I would be able and willing to pay this additional cost."> Yes, I would be able and willing to pay this additional cost.</label>
+        <label class="radio-item"><input type="radio" name="s4_q2" value="No, this additional cost would prevent me from joining the program."> No, this additional cost would prevent me from joining the program.</label>
+    </div>
+    <div class="error-message">Please select an answer.</div>
+</div>
+
+<!-- S4 Q3 -->
+<div class="question-card" id="card-s4_q3">
+    <label class="question-title">3. Do you need a scholarship or financial aid? <span class="required">*</span></label>
+    <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="s4_q3" value="Yes, I need a scholarship."> Yes, I need a scholarship.</label>
+        <label class="radio-item"><input type="radio" name="s4_q3" value="No, I do not need a scholarship."> No, I do not need a scholarship.</label>
+    </div>
+    <div class="error-message">Please select an answer.</div>
+</div>
+
+<!-- ==================== PART 5 ==================== -->
+<div class="section-gap"></div>
+<div class="question-card section-header">
+    <h3>Part 5: News and Public Relations</h3>
+</div>
+
+<!-- S5 Q1 -->
+<div class="question-card" id="card-s5_q1">
+    <label class="question-title">1. Are you familiar with Chulalongkorn University? <span class="required">*</span></label>
+    <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="s5_q1" value="Yes, I am familiar with the university."> Yes, I am familiar with the university.</label>
+        <label class="radio-item"><input type="radio" name="s5_q1" value="No, I have not heard of the university."> No, I have not heard of the university.</label>
+    </div>
+    <div class="error-message">Please select an answer.</div>
+</div>
+
+<!-- S5 Q2 -->
+<div class="question-card" id="card-s5_q2">
+    <label class="question-title">2. Are you familiar with the Faculty of Veterinary Science at Chulalongkorn University? <span class="required">*</span></label>
+    <div class="radio-group">
+        <label class="radio-item"><input type="radio" name="s5_q2" value="Yes, I am familiar with the faculty."> Yes, I am familiar with the faculty.</label>
+        <label class="radio-item"><input type="radio" name="s5_q2" value="No, I have not heard of the faculty."> No, I have not heard of the faculty.</label>
+    </div>
+    <div class="error-message">Please select an answer.</div>
+</div>
+
+<!-- S5 Q3 (optional checkbox) -->
+<div class="question-card">
+    <label class="question-title">3. Where have you heard or seen news about the Faculty of Veterinary Science, Chulalongkorn University?</label>
+    <span class="question-subtitle">Select all that apply</span>
+    <label class="checkbox-item"><input type="checkbox" name="s5_q3" value="Friends or senior students"><span class="checkbox-label">Friends or senior students</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s5_q3" value="Family or relatives"><span class="checkbox-label">Family or relatives</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s5_q3" value="School guidance counselors or teachers"><span class="checkbox-label">School guidance counselors or teachers</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s5_q3" value="Official University or Faculty website"><span class="checkbox-label">Official University or Faculty website</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s5_q3" value="Educational news websites"><span class="checkbox-label">Educational news websites</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s5_q3" value="Facebook"><span class="checkbox-label">Facebook</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s5_q3" value="X (Twitter)"><span class="checkbox-label">X (Twitter)</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s5_q3" value="Instagram"><span class="checkbox-label">Instagram</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s5_q3" value="YouTube"><span class="checkbox-label">YouTube</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s5_q3" value="TikTok"><span class="checkbox-label">TikTok</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s5_q3" value="Line Official"><span class="checkbox-label">Line Official</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s5_q3" value="Spotify"><span class="checkbox-label">Spotify</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s5_q3" value="LinkedIn"><span class="checkbox-label">LinkedIn</span></label>
+    <label class="checkbox-item"><input type="checkbox" name="s5_q3" value="CU Open House events"><span class="checkbox-label">CU Open House events</span></label>
+    <div class="other-row">
+        <input type="checkbox" id="s5q3_other_cb" onchange="toggleOtherText('s5_q3_other', this.checked)">
+        <span class="other-label">Other</span>
+        <input type="text" id="s5_q3_other" class="other-text-input" placeholder="Please specify" disabled>
+    </div>
+</div>
+
+<!-- S5 Q4 (optional textarea) -->
+<div class="question-card">
+    <label class="question-title">4. Do you have any comments or suggestions on how we can improve our international communications and public relations?</label>
+    <textarea id="s5_q4" placeholder="Please share your thoughts (optional)" rows="3"></textarea>
+</div>
+
+</div><!-- /section-2-5-wrapper -->
+
+<div class="btn-group">
+    <button type="button" class="btn btn-secondary" onclick="openModal('modal-confirm-reset')">Clear</button>
+    <button type="button" class="btn btn-primary" id="submitBtn" onclick="validateAndSubmit()">Submit Survey</button>
+</div>
+
+</div><!-- /container -->
+
+<script>
+// ─── REPLACE WITH YOUR APPS SCRIPT URL ───
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzG9QP2AaXU0MwhU6hLOwkluvswbRM5oT-gRaS9aNeHTD5A8VtQPDbh5LD3jozUt837/exec";
+
+// ─────────────── COUNTRIES ───────────────
+const COUNTRIES = [
+    "Afghanistan","Albania","Algeria","Andorra","Angola","Argentina","Armenia","Australia",
+    "Austria","Azerbaijan","Bahrain","Bangladesh","Belarus","Belgium","Belize","Benin",
+    "Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria",
+    "Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Chad","Chile","China",
+    "Colombia","Congo","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic","Denmark",
+    "Ecuador","Egypt","El Salvador","Estonia","Ethiopia","Finland","France","Georgia",
+    "Germany","Ghana","Greece","Guatemala","Haiti","Honduras","Hungary","Iceland","India",
+    "Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan",
+    "Kazakhstan","Kenya","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon",
+    "Libya","Lithuania","Luxembourg","Madagascar","Malaysia","Maldives","Mali","Malta",
+    "Mexico","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar",
+    "Namibia","Nepal","Netherlands","New Zealand","Nicaragua","Nigeria","North Korea",
+    "Norway","Oman","Pakistan","Palestine","Panama","Paraguay","Peru","Philippines",
+    "Poland","Portugal","Qatar","Romania","Russia","Rwanda","Saudi Arabia","Senegal",
+    "Serbia","Singapore","Slovakia","Slovenia","Somalia","South Africa","South Korea",
+    "South Sudan","Spain","Sri Lanka","Sudan","Sweden","Switzerland","Syria","Taiwan",
+    "Tajikistan","Tanzania","Thailand","Timor-Leste","Tunisia","Turkey","Uganda","Ukraine",
+    "United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan",
+    "Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"
+];
+
+(function populateCountries() {
+    ['s1_country', 's1_hs_country'].forEach(id => {
+        const sel = document.getElementById(id);
+        if (!sel) return;
+        COUNTRIES.forEach(c => {
+            const opt = document.createElement('option');
+            opt.value = c; opt.textContent = c;
+            sel.appendChild(opt);
+        });
+    });
+})();
+
+// ─────────────── RANK DATA ───────────────
+const RANK_S2Q2 = [
+    { id: "quality",   name: "Higher quality and standard of education" },
+    { id: "career",    name: "Better opportunities to work abroad or in multinational companies" },
+    { id: "life",      name: "Experience living and learning in an international community" },
+    { id: "english",   name: "Chance to improve English skills and medical terms" },
+    { id: "network",   name: "Building a global network and connections" },
+    { id: "cost",      name: "Value for money (tuition fees vs. future opportunities)" },
+    { id: "readiness", name: "Personal readiness and preference for an international system" }
+];
+
+const RANK_S2Q4 = [
+    { id: "finance",    name: "Financial Feasibility",               desc: "More affordable tuition fees and lower living expenses compared to programs in Western countries (e.g., US, UK, Australia)." },
+    { id: "comfort",    name: "Cultural & Regional Comfort",         desc: "A welcoming environment with a reasonable distance and easier cultural adjustment than moving to a different hemisphere." },
+    { id: "family",     name: "Proximity to Support Networks",       desc: "The benefit of staying relatively close to family, friends, and existing personal support systems." },
+    { id: "future",     name: "Local Career & Network Integration",  desc: "The opportunity to build a professional network and establish a career or business within Thailand or the ASEAN region after graduation." },
+    { id: "timeline",   name: "Flexible & Accessible Admissions",   desc: "Streamlined entry requirements and smoother application timelines compared to universities in Western countries." },
+    { id: "license",    name: "National Licensing Preparation",      desc: "Direct exposure to the curriculum and clinical framework required to prepare for the veterinary licensing examination in Thailand." },
+    { id: "curriculum", name: "Contextual & Global Curriculum",      desc: "A globally recognized curriculum that offers direct, hands-on experience with tropical diseases, livestock management, and clinical cases unique to Southeast Asia." }
+];
+
+function buildRankList(items, ulId) {
+    const ul = document.getElementById(ulId);
+    ul.innerHTML = '';
+    items.forEach((item, i) => {
+        const li = document.createElement('li');
+        li.className = 'rank-item';
+        li.draggable = true;
+        li.dataset.id = item.id;
+        li.innerHTML = `
+            <span class="rank-badge">${i + 1}</span>
+            <span class="rank-drag-handle">⠿</span>
+            <div class="rank-item-text">
+                <div class="rank-item-name">${item.name}</div>
+                ${item.desc ? `<div class="rank-item-desc">${item.desc}</div>` : ''}
+            </div>`;
+        ul.appendChild(li);
+    });
+    initDragDrop(ul);
+}
+
+function updateRankBadges(ul) {
+    ul.querySelectorAll('.rank-item').forEach((li, i) => {
+        li.querySelector('.rank-badge').textContent = i + 1;
+    });
+}
+
+function initDragDrop(ul) {
+    let dragEl = null;
+    ul.addEventListener('dragstart', e => {
+        dragEl = e.target.closest('.rank-item');
+        if (dragEl) dragEl.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+    });
+    ul.addEventListener('dragend', () => {
+        if (dragEl) { dragEl.classList.remove('dragging'); dragEl = null; }
+        ul.querySelectorAll('.rank-item').forEach(li => li.classList.remove('drag-over'));
+        updateRankBadges(ul);
+    });
+    ul.addEventListener('dragover', e => {
+        e.preventDefault();
+        const target = e.target.closest('.rank-item');
+        if (!target || target === dragEl) return;
+        ul.querySelectorAll('.rank-item').forEach(li => li.classList.remove('drag-over'));
+        target.classList.add('drag-over');
+        const rect = target.getBoundingClientRect();
+        ul.insertBefore(dragEl, e.clientY > rect.top + rect.height / 2 ? target.nextSibling : target);
+    });
+    ul.addEventListener('touchstart', e => {
+        dragEl = e.target.closest('.rank-item');
+        if (dragEl) dragEl.classList.add('dragging');
+    }, { passive: true });
+    ul.addEventListener('touchmove', e => {
+        if (!dragEl) return;
+        e.preventDefault();
+        const touch = e.touches[0];
+        const el = document.elementFromPoint(touch.clientX, touch.clientY);
+        const target = el ? el.closest('.rank-item') : null;
+        if (!target || target === dragEl) return;
+        ul.querySelectorAll('.rank-item').forEach(li => li.classList.remove('drag-over'));
+        target.classList.add('drag-over');
+        const rect = target.getBoundingClientRect();
+        ul.insertBefore(dragEl, touch.clientY > rect.top + rect.height / 2 ? target.nextSibling : target);
+    }, { passive: false });
+    ul.addEventListener('touchend', () => {
+        if (dragEl) { dragEl.classList.remove('dragging'); dragEl = null; }
+        ul.querySelectorAll('.rank-item').forEach(li => li.classList.remove('drag-over'));
+        updateRankBadges(ul);
+    });
+}
+
+buildRankList(RANK_S2Q2, 'rank-list-s2q2');
+buildRankList(RANK_S2Q4, 'rank-list-s2q4');
+
+// ─────────────── LIKERT ───────────────
+function buildSingleScale(containerId, radioName) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    let html = '';
+    for (let n = 1; n <= 5; n++) {
+        html += `<div class="option"><label>${n}</label><input type="radio" name="${radioName}" value="${n}"></div>`;
+    }
+    container.innerHTML = html;
+}
+buildSingleScale('s3q2-scale', 's3_q2');
+buildSingleScale('s3q3-scale', 's3_q3');
+buildSingleScale('s3q4-scale', 's3_q4');
+buildSingleScale('s3q5-scale', 's3_q5');
+
+// ─────────────── DYNAMIC INPUTS ───────────────
+function addDynamic(containerId, placeholder) {
+    const wrap = document.createElement('div');
+    wrap.className = 'dynamic-extra-row';
+    wrap.innerHTML = `
+        <input type="text" placeholder="${placeholder}">
+        <button type="button" class="btn-remove" onclick="this.parentElement.remove()">Remove</button>`;
+    document.getElementById(containerId).appendChild(wrap);
+}
+
+// ─────────────── INTEREST FILTER ───────────────
+function onInterestChange() {
+    const val = document.querySelector('input[name="s1_interest"]:checked')?.value;
+    const wrapper = document.getElementById('section-2-5-wrapper');
+    const filteredMsg = document.getElementById('filtered-msg');
+    if (val === 'Not interested at all') {
+        wrapper.style.display = 'none';
+        filteredMsg.classList.add('visible');
+    } else {
+        wrapper.style.display = '';
+        filteredMsg.classList.remove('visible');
+    }
+}
+
+// ─────────────── STATUS LOGIC ───────────────
+function onStatusChange() {
+    const val = document.querySelector('input[name="s1_status"]:checked')?.value;
+    const subStudent = document.getElementById('sub-student');
+    const subUni     = document.getElementById('sub-university');
+    const s2q6       = document.getElementById('s2_q6_section');
+    const s2q1Stu    = document.getElementById('s2q1-student-options');
+    const s2q1Uni    = document.getElementById('s2q1-uni-options');
+    const uniLabel   = document.getElementById('sub-uni-label');
+
+    subStudent.classList.remove('visible');
+    subUni.classList.remove('visible');
+    s2q6.classList.remove('visible');
+
+    if (val === 'School Student') {
+        subStudent.classList.add('visible');
+        s2q1Stu.style.display = '';
+        s2q1Uni.style.display = 'none';
+    } else {
+        subUni.classList.add('visible');
+        s2q1Stu.style.display = 'none';
+        s2q1Uni.style.display = '';
+        s2q6.classList.add('visible');
+        uniLabel.textContent = 'Please indicate your highest level of completed education.';
+    }
+}
+
+// ─────────────── HS TYPE ───────────────
+function onHsTypeChange() {
+    const val = document.querySelector('input[name="s1_hs_type"]:checked')?.value;
+    const wrap = document.getElementById('hs-country-wrap');
+    wrap.classList.toggle('visible', val === 'International school abroad');
+    if (val !== 'International school abroad') document.getElementById('s1_hs_country').value = '';
+}
+
+// ─────────────── UNI INST / FACULTY ───────────────
+function onUniInstChange() {
+    const val = document.getElementById('s1_uni_inst').value;
+    document.getElementById('uni-inst-other-wrap').classList.toggle('visible', val === 'other');
+    if (val !== 'other') document.getElementById('s1_uni_inst_other').value = '';
+}
+function onUniFacultyChange() {
+    const val = document.getElementById('s1_uni_faculty').value;
+    document.getElementById('uni-faculty-other-wrap').classList.toggle('visible', val === 'other');
+    if (val !== 'other') document.getElementById('s1_uni_faculty_other').value = '';
+}
+
+// ─────────────── UNI YEAR ───────────────
+function onUniYearChange() {
+    const val = document.getElementById('s1_uni_year').value;
+    document.getElementById('sub-year-other-wrap').classList.toggle('visible', val === 'other');
+    document.getElementById('sub-occupation-wrap').classList.toggle('visible', val === 'Already graduated');
+    if (val !== 'other') document.getElementById('s1_uni_year_other').value = '';
+    if (val !== 'Already graduated') document.getElementById('s1_occupation').value = '';
+}
+
+// ─────────────── TOGGLE OTHER TEXT ───────────────
+function toggleOtherText(inputId, enabled) {
+    const inp = document.getElementById(inputId);
+    if (!inp) return;
+    inp.disabled = !enabled;
+    if (!enabled) inp.value = '';
+}
+
+// ─────────────── MODAL ───────────────
+function openModal(id)  { document.getElementById(id).classList.add('active'); }
+function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+// ─────────────── RESET ───────────────
+function doReset() {
+    closeModal('modal-confirm-reset');
+    document.querySelectorAll('.has-error').forEach(c => c.classList.remove('has-error'));
+    document.querySelectorAll('input[type="text"], textarea').forEach(el => el.value = '');
+    document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(el => el.checked = false);
+    document.querySelectorAll('select').forEach(el => el.selectedIndex = 0);
+    document.querySelectorAll('.conditional-section.visible').forEach(el => el.classList.remove('visible'));
+    document.querySelectorAll('.other-text-input').forEach(el => { el.disabled = true; el.value = ''; });
+    document.getElementById('section-2-5-wrapper').style.display = '';
+    document.getElementById('filtered-msg').classList.remove('visible');
+    buildRankList(RANK_S2Q2, 'rank-list-s2q2');
+    buildRankList(RANK_S2Q4, 'rank-list-s2q4');
+    document.getElementById('s2q1-student-options').style.display = '';
+    document.getElementById('s2q1-uni-options').style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ─────────────── VALIDATE ───────────────
+function clearAllErrors() {
+    document.querySelectorAll('.has-error').forEach(c => c.classList.remove('has-error'));
+}
+
+function validateAndSubmit() {
+    clearAllErrors();
+    let firstError = null, hasError = false;
+
+    function err(cardId, msg) {
+        const card = document.getElementById(cardId);
+        if (!card) return;
+        card.classList.add('has-error');
+        if (msg) { const em = card.querySelector('.error-message'); if (em) em.textContent = msg; }
+        if (!firstError) firstError = card;
+        hasError = true;
+    }
+
+    const status   = document.querySelector('input[name="s1_status"]:checked')?.value;
+    const interest = document.querySelector('input[name="s1_interest"]:checked')?.value;
+    const filtered = interest === 'Not interested at all';
+
+    // S1 basics
+    if (!document.querySelector('input[name="s1_gender"]:checked'))  err('card-s1_gender',  'Please select your gender.');
+    if (!document.querySelector('input[name="s1_age"]:checked'))     err('card-s1_age',     'Please select your age range.');
+    if (!document.getElementById('s1_country').value)                err('card-s1_country', 'Please select your country.');
+    if (!status)                                                      err('card-s1_status',  'Please select your current status.');
+
+    // School Student sub-questions
+    if (status === 'School Student') {
+        if (!document.querySelector('input[name="s1_edu_level"]:checked'))
+            err('card-s1_edu_level', 'Please select your education level.');
+        if (!document.getElementById('s1_hs_school').value.trim())
+            err('card-s1_hs_school', 'Please enter your school name.');
+        const hsType = document.querySelector('input[name="s1_hs_type"]:checked')?.value;
+        if (!hsType)
+            err('card-s1_hs_type', 'Please select your school type.');
+        else if (hsType === 'International school abroad' && !document.getElementById('s1_hs_country').value)
+            err('card-s1_hs_type', 'Please select the country of your school.');
+        if (!document.getElementById('s1_hs_track').value.trim())
+            err('card-s1_hs_track', 'Please enter your study track or field.');
+    }
+
+    // University / General Public sub-questions
+    if (status === "University Student (Bachelor's degree or higher)" || status === 'General Public') {
+        const uniInst = document.getElementById('s1_uni_inst').value;
+        if (!uniInst)
+            err('card-s1_uni_inst', 'Please select your university.');
+        else if (uniInst === 'other' && !document.getElementById('s1_uni_inst_other').value.trim())
+            err('card-s1_uni_inst', 'Please enter your university name.');
+
+        if (!document.querySelector('input[name="s1_uni_degree"]:checked'))
+            err('card-s1_uni_degree', 'Please select your degree level.');
+
+        const fac = document.getElementById('s1_uni_faculty').value;
+        if (!fac)
+            err('card-s1_uni_faculty', 'Please select your faculty.');
+        else if (fac === 'other' && !document.getElementById('s1_uni_faculty_other').value.trim())
+            err('card-s1_uni_faculty', 'Please enter your faculty name.');
+
+        if (!document.getElementById('s1_uni_major').value.trim())
+            err('card-s1_uni_major', 'Please enter your major or field of study.');
+        if (!document.querySelector('input[name="s1_uni_medium"]:checked'))
+            err('card-s1_uni_medium', 'Please select the medium of instruction.');
+
+        const yr = document.getElementById('s1_uni_year').value;
+        if (!yr)
+            err('card-s1_uni_year', 'Please select your academic year.');
+        else if (yr === 'other' && !document.getElementById('s1_uni_year_other').value.trim())
+            err('card-s1_uni_year_other', 'Please enter your academic year.');
+        else if (yr === 'Already graduated' && !document.getElementById('s1_occupation').value.trim())
+            err('card-s1_occupation', 'Please enter your current occupation or job title.');
+    }
+
+    if (!interest) err('card-s1_interest', 'Please select your level of interest.');
+
+    if (!filtered) {
+        // S2 Q1
+        const s2q1ok = status === 'School Student'
+            ? (document.querySelector('input[name="s2_q1_student"]:checked') || document.getElementById('s2q1_student_other_cb')?.checked)
+            : (document.querySelector('input[name="s2_q1_uni"]:checked')     || document.getElementById('s2q1_uni_other_cb')?.checked);
+        if (!s2q1ok) err('card-s2_q1', 'Please select at least one option.');
+
+        // S2 Q6 (University / General Public only)
+        if (status !== 'School Student') {
+            const s2q6ok = document.querySelector('input[name="s2_q6"]:checked') || document.getElementById('s2q6_other_cb')?.checked;
+            if (!s2q6ok) err('card-s2_q6', 'Please select at least one option.');
+        }
+
+        // S3 Q1
+        const s3q1ok = document.querySelector('input[name="s3_q1"]:checked') || document.getElementById('s3q1_other_cb')?.checked;
+        if (!s3q1ok) err('card-s3_q1', 'Please select at least one field.');
+
+        // S3 required likerts (Q2, Q3 only)
+        ['s3_q2', 's3_q3'].forEach(name => {
+            if (!document.querySelector(`input[name="${name}"]:checked`))
+                err('card-' + name, 'Please rate this item.');
+        });
+
+        // S4
+        if (!document.querySelector('input[name="s4_q1"]:checked')) err('card-s4_q1', 'Please select a tuition budget range.');
+        if (!document.querySelector('input[name="s4_q2"]:checked')) err('card-s4_q2', 'Please select an answer.');
+        if (!document.querySelector('input[name="s4_q3"]:checked')) err('card-s4_q3', 'Please select an answer.');
+
+        // S5
+        if (!document.querySelector('input[name="s5_q1"]:checked')) err('card-s5_q1', 'Please select an answer.');
+        if (!document.querySelector('input[name="s5_q2"]:checked')) err('card-s5_q2', 'Please select an answer.');
+    }
+
+    if (hasError) {
+        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+    }
+    submitData();
+}
+
+// ─────────────── COLLECT & SUBMIT ───────────────
+function r(name) { return document.querySelector(`input[name="${name}"]:checked`)?.value || ''; }
+
+function getRankOrder(ulId, items) {
+    return Array.from(document.querySelectorAll('#' + ulId + ' .rank-item'))
+        .map((li, i) => `${i + 1}. ${items.find(x => x.id === li.dataset.id)?.name || li.dataset.id}`)
+        .join(' | ');
+}
+
+function getChecked(name) {
+    return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(e => e.value).join(' | ');
+}
+
+function getDynamic(containerId) {
+    return Array.from(document.querySelectorAll('#' + containerId + ' input[type="text"]'))
+        .map(e => e.value.trim()).filter(v => v).join(' | ');
+}
+
+function submitData() {
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Submitting...'; btn.disabled = true;
+
+    const status   = r('s1_status');
+    const interest = r('s1_interest');
+    const filtered = interest === 'Not interested at all';
+
+    // S1 school
+    let eduLevel = '', hsSchool = '', hsType = '', hsCountry = '', hsTrack = '';
+    if (status === 'School Student') {
+        eduLevel  = r('s1_edu_level');
+        hsSchool  = document.getElementById('s1_hs_school').value.trim();
+        hsType    = r('s1_hs_type');
+        hsCountry = hsType === 'International school abroad' ? document.getElementById('s1_hs_country').value : '';
+        hsTrack   = document.getElementById('s1_hs_track').value.trim();
+    }
+
+    // S1 university / public
+    let uniInst = '', uniDegree = '', uniFaculty = '', uniMajor = '', uniMedium = '', uniYear = '', occupation = '';
+    if (status !== 'School Student') {
+        const inst  = document.getElementById('s1_uni_inst').value;
+        uniInst     = inst === 'other' ? document.getElementById('s1_uni_inst_other').value.trim() : inst;
+        uniDegree   = r('s1_uni_degree');
+        const fac   = document.getElementById('s1_uni_faculty').value;
+        uniFaculty  = fac === 'other' ? document.getElementById('s1_uni_faculty_other').value.trim() : fac;
+        uniMajor    = document.getElementById('s1_uni_major').value.trim();
+        uniMedium   = r('s1_uni_medium');
+        const yr    = document.getElementById('s1_uni_year').value;
+        uniYear     = yr === 'other' ? document.getElementById('s1_uni_year_other').value.trim() : yr;
+        occupation  = document.getElementById('s1_occupation').value.trim();
+    }
+
+    // S2 Q1
+    let s2q1 = '';
+    if (!filtered) {
+        if (status === 'School Student') {
+            const cb = getChecked('s2_q1_student');
+            const ot = document.getElementById('s2q1_student_other_cb')?.checked ? document.getElementById('s2_q1_student_other').value.trim() : '';
+            s2q1 = [cb, ot].filter(Boolean).join(' | ');
+        } else {
+            const cb = getChecked('s2_q1_uni');
+            const ot = document.getElementById('s2q1_uni_other_cb')?.checked ? document.getElementById('s2_q1_uni_other').value.trim() : '';
+            s2q1 = [cb, ot].filter(Boolean).join(' | ');
+        }
+    }
+
+    // S2 Q6
+    let s2q6 = '';
+    if (!filtered && status !== 'School Student') {
+        const cb = getChecked('s2_q6');
+        const ot = document.getElementById('s2q6_other_cb')?.checked ? document.getElementById('s2_q6_other').value.trim() : '';
+        s2q6 = [cb, ot].filter(Boolean).join(' | ');
+    }
+
+    // S3 Q1
+    let s3q1 = '';
+    if (!filtered) {
+        const cb = getChecked('s3_q1');
+        const ot = document.getElementById('s3q1_other_cb')?.checked ? document.getElementById('s3_q1_other').value.trim() : '';
+        s3q1 = [cb, ot].filter(Boolean).join(' | ');
+    }
+
+    // S5 Q3
+    const s5q3cb = getChecked('s5_q3');
+    const s5q3ot = document.getElementById('s5q3_other_cb')?.checked ? document.getElementById('s5_q3_other').value.trim() : '';
+    const s5q3   = [s5q3cb, s5q3ot].filter(Boolean).join(' | ');
+
+    const data = {
+        timestamp:           new Date().toISOString(),
+        // S1
+        s1_gender:           r('s1_gender'),
+        s1_age:              r('s1_age'),
+        s1_country:          document.getElementById('s1_country').value,
+        s1_status:           status,
+        // School Student
+        s1_edu_level:        eduLevel,
+        s1_hs_school:        hsSchool,
+        s1_hs_type:          hsType,
+        s1_hs_country:       hsCountry,
+        s1_hs_track:         hsTrack,
+        // University / Public
+        s1_uni_institution:  uniInst,
+        s1_uni_degree:       uniDegree,
+        s1_uni_faculty:      uniFaculty,
+        s1_uni_major:        uniMajor,
+        s1_uni_medium:       uniMedium,
+        s1_uni_year:         uniYear,
+        s1_occupation:       occupation,
+        s1_interest:         interest,
+        // S2
+        s2_q1:               s2q1,
+        s2_q2_rank:          filtered ? '' : getRankOrder('rank-list-s2q2', RANK_S2Q2),
+        s2_q3:               filtered ? '' : getDynamic('s2_q3_inputs'),
+        s2_q4_rank:          filtered ? '' : getRankOrder('rank-list-s2q4', RANK_S2Q4),
+        s2_q5:               filtered ? '' : getDynamic('s2_q5_inputs'),
+        s2_q6:               s2q6,
+        // S3
+        s3_q1:               s3q1,
+        s3_q2:               filtered ? '' : r('s3_q2'),
+        s3_q3:               filtered ? '' : r('s3_q3'),
+        s3_q4:               r('s3_q4'),
+        s3_q5:               r('s3_q5'),
+        // S4
+        s4_q1:               filtered ? '' : r('s4_q1'),
+        s4_q2:               filtered ? '' : r('s4_q2'),
+        s4_q3:               filtered ? '' : r('s4_q3'),
+        // S5
+        s5_q1:               filtered ? '' : r('s5_q1'),
+        s5_q2:               filtered ? '' : r('s5_q2'),
+        s5_q3:               s5q3,
+        s5_q4:               document.getElementById('s5_q4').value.trim(),
+    };
+
+    fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(data)
+    })
+    .then(() => {
+        document.getElementById('modal-success-icon').textContent  = '✅';
+        document.getElementById('modal-success-title').textContent = 'Survey submitted successfully!';
+        document.getElementById('modal-success-body').textContent  =
+            'Thank you for taking the time to complete this survey.\nYour responses will be used solely to develop the CU i-VET program.';
+        openModal('modal-success');
+        doReset();
+    })
+    .catch(e => {
+        document.getElementById('modal-success-icon').textContent  = '❌';
+        document.getElementById('modal-success-title').textContent = 'An error occurred';
+        document.getElementById('modal-success-body').textContent  = 'Could not submit your response. Please try again.';
+        openModal('modal-success');
+        console.error(e);
+    })
+    .finally(() => {
+        btn.textContent = 'Submit Survey';
+        btn.disabled = false;
+    });
+}
+</script>
+</body>
+</html>
